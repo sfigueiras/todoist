@@ -1,0 +1,3 @@
+<input type="checkbox" name="" checked="<%= task.state %>">		
+<%= task.description %>
+<%= render "tasks/#{task.type.underscore}", task: task %>

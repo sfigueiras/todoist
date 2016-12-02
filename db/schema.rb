@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201195941) do
+ActiveRecord::Schema.define(version: 20161202023502) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20161201195941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_lists_on_slug"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "list_id"
+    t.text     "description"
+    t.boolean  "state"
+    t.integer  "priority"
+    t.float    "progress"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "type"
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
 end

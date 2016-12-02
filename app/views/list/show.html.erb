@@ -1,2 +1,9 @@
 <h1><%= @list.name %></h1>
-<p>Find me in app/views/list/show.html.erb</p>
+
+<ul>
+	<% @list.tasks.each do |task| %>
+		<li>
+			<%= render "tasks/show", task: task %>
+		</li>
+	<% end %>
+</ul>
