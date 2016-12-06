@@ -1,0 +1,18 @@
+<h1><%= @list.name %>  <%= @list.created_at %></h1>
+
+<ul>
+	<% @list.tasks.each do |task| %>
+		<li>
+			<%= render "tasks/show", list: @list, task: task %>
+		</li>
+		<br>
+	<% end %>
+</ul>
+
+<%= form_for([@list, @new_task]) do |f| %>
+	<%= f.text_field :description %>
+	<%= f.select :type, Task.descendants.map(&:name) %>
+	<%= f.submit %>
+<% end %>
+
+<small><%= @list.updated_at %></small>

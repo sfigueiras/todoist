@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161202023502) do
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_lists_on_slug"
+    t.index ["slug"], name: "index_lists_on_slug", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|

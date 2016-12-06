@@ -1,5 +1,5 @@
 class LongTask < Task
-	def custom_attributes
-		[progress]
+	def self.model_name
+		Task.model_name
 	end
 end

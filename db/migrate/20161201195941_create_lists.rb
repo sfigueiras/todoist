@@ -6,6 +6,6 @@ class CreateLists < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :lists, :slug
+    add_index :lists, :slug, unique: true
   end
 end

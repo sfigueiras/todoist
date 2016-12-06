@@ -1,3 +1,6 @@
-<input type="checkbox" name="" checked="<%= task.state %>">		
-<%= task.description %>
-<%= render "tasks/#{task.type.underscore}", task: task %>
+<%= form_for([list, task]) do |f| %>
+	<%= f.check_box :state %>
+	<%= f.text_field :description %>
+	<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
+	<%= f.submit %> <%= link_to 'Delete', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

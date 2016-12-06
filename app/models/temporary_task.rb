@@ -1,5 +1,5 @@
 class TemporaryTask < Task
-	def custom_attributes
-		[end_date, start_date]
+	def self.model_name
+		Task.model_name
 	end
 end
