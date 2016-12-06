@@ -19,28 +19,25 @@
 	&:hover:last-child:not(:first-child) {
 		border-top: 1px solid #eee;
 	}
-
-	.action {
-		// visibility: hidden;
-		// opacity: 0;
-		// transition: visibility 0s, opacity 0.5s linear;
-	}
 }
 
 .update-task {	
-	input:focus {
-		.task.action {
-			// visibility: visible;
-			// opacity: 1;
-			// transition: visibility 0s, opacity 0.5s linear;
-			// background-color: red;
-		}
-	}
+}
+
+.updatable {
+	
+}
+
+.progress {
+	width: 85%;
+	text-align: center;
+	margin-top: 2.5%;
 }
 
 .new-task {
-	overflow: hidden;
+	margin-top: 5%;
 	padding-top: 5%;
+	overflow: hidden;
 	border-top: 2px solid #eee;
 }
 
@@ -49,9 +46,16 @@
 	vertical-align: baseline;
 }
 
+.crossed {
+	opacity: 0.8;
+	text-decoration: line-through
+}
+
 .remove { 
   color: #333;
   display: none;
+
+  i { vertical-align: super }
 
   &:hover { color: firebrick }
 }

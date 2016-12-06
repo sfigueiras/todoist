@@ -6,7 +6,10 @@ class TasksController < ApplicationController
 
 	def update
 		Task.update(params[:id], task_params)
-		redirect_to list_path(params[:list_id])
+		respond_to do |format|	
+			format.js { render status: 200 }
+			format.html { redirect_to list_path(params[:list_id]) }
+		end
 	end
 
 	def destroy

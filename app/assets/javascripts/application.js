@@ -22,12 +22,34 @@ $(document).ready(function() {
 	$('.task').on('mouseover', function() {
 		var $remove = $(this).find('.remove');
 		$remove.css({display: 'inline-block'});
-		// $remove.addClass('hovered');
 	});
 
 	$('.task').on('mouseout', function() {
 		var $remove = $(this).find('.remove');
 		$remove.css({display: 'none'});
-		// $remove.removeClass('hovered');
 	});
+
+	$('.updatable').bind('change', function() {
+		$form = $(this).closest('form')[0];
+		$form.submit();
+	});
+
+	$('.state').change(function() {
+		$description = $(this).closest('form').find('.description');
+		if(this.checked) {
+			cross($description);
+		} else {
+			uncross($description);
+		}
+	});
+
+	// $('.state').prop('checked', true)
+
+	function cross(element) {
+		element.addClass('crossed');
+	}
+
+	function uncross(element) {
+		element.removeClass('crossed');
+	}
 });

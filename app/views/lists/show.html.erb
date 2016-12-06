@@ -1,7 +1,8 @@
 <section class="list medium-6 medium-offset-3 large-4 large-offset-4 columns">
 	<header>
 		<%= form_for(@list, url: { action: :update}, html: {class: 'medium-10 columns'}) do |f| %>
-			<%= f.text_field :name, class: "title" %>
+			<%= f.hidden_field :slug %>
+			<%= f.text_field :name, class: "title updatable" %>
 		<% end %>
 		<p class="created-at"><%= format_date(@list.created_at) %></p>
 	</header><!-- /header -->

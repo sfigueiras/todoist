@@ -1,12 +1,12 @@
-<%= form_for([list, task], html: {class: 'update-task'}) do |f| %>
+<%= form_for([list, task], remote: true, authenticity_token: true, html: {class: 'update-task'}) do |f| %>
 	<div class="row">
 		<div class="task">
 			<div class="input-group no-margin">
 				<div class="input-group-field">
-					<%= f.check_box :state, class: 'state no-margin' %>
+					<%= f.check_box :state, class: 'state no-margin updatable' %>
 				</div>
 				<div class="input-group-field">
-					<%= f.text_field :description, class: 'no-margin' %>
+					<%= f.text_field :description, class: "no-margin updatable description #{'crossed' if task.state}" %>
 				</div>
 
 				<div class="input-group-field">
@@ -17,10 +17,6 @@
 			</div>
 
 			<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
-
-			<!-- <div class="action text-right">
-				<%= f.submit 'Save', class: 'button' %>
-			</div>	 -->
 		</div>
 	</div>
 <% end %>
