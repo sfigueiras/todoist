@@ -1,6 +1,20 @@
-<%= form_for([list, task]) do |f| %>
-	<%= f.check_box :state %>
-	<%= f.text_field :description %>
-	<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
-	<%= f.submit %> <%= link_to 'Delete', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= form_for([list, task], html: {class: 'update-task'}) do |f| %>
+	<div class="row">
+		<div class="task">
+			<div class="input-group no-margin">
+				<div class="input-group-field">
+					<%= f.check_box :state, class: 'state no-margin' %>
+				</div>
+				<div class="input-group-field">
+					<%= f.text_field :description, class: 'no-margin' %>
+				</div>
+			</div>
+
+			<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
+
+			<!-- <div class="action text-right">
+				<%= f.submit 'Save', class: 'button' %> <%= link_to 'Delete', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>	 -->
+		</div>
+	</div>
 <% end %>

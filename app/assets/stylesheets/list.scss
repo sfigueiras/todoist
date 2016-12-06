@@ -1,3 +1,35 @@
 // Place all the styles related to the list controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list {
+	margin-top: 5%;
+	background-color: white;
+	-webkit-box-shadow: 0px 5px 39px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 5px 39px -9px rgba(0,0,0,0.75);
+	box-shadow: 0px 5px 39px -9px rgba(0,0,0,0.75);
+
+	header {
+		margin-bottom: 10%;
+		border-bottom: 2px solid #eee;
+		overflow:hidden;
+		
+		.title, .created-at { display: inline}
+		
+		.title {
+			margin-top: 10%;
+			font-size: 2.5em;
+		}
+
+		.created-at {
+			float: right;
+			margin-top: 5%;
+		}
+
+	}
+}
+
+.updated-at {
+	vertical-align: baseline;
+	margin: 2.5% 0 2.5% 0;
+}
