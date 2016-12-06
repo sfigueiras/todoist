@@ -17,3 +17,17 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function() {
+	$('.task').on('mouseover', function() {
+		var $remove = $(this).find('.remove');
+		$remove.css({display: 'inline-block'});
+		// $remove.addClass('hovered');
+	});
+
+	$('.task').on('mouseout', function() {
+		var $remove = $(this).find('.remove');
+		$remove.css({display: 'none'});
+		// $remove.removeClass('hovered');
+	});
+});

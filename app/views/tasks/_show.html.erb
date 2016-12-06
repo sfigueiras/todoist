@@ -8,12 +8,18 @@
 				<div class="input-group-field">
 					<%= f.text_field :description, class: 'no-margin' %>
 				</div>
+
+				<div class="input-group-field">
+					<%= link_to list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove' do %>
+						<%= fa_icon("remove", class: "facebookauth") %>
+					<% end %>
+				</div>
 			</div>
 
 			<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
 
 			<!-- <div class="action text-right">
-				<%= f.submit 'Save', class: 'button' %> <%= link_to 'Delete', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= f.submit 'Save', class: 'button' %>
 			</div>	 -->
 		</div>
 	</div>

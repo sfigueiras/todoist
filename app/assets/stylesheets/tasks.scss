@@ -6,6 +6,20 @@
 }
 
 .task {
+	border: 1px solid white;
+	&:hover:not(:first-child):not(:last-child){
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+	}
+
+	&:hover:first-child:not(:last-child) {
+		border-bottom: 1px solid #eee;
+	}
+
+	&:hover:last-child:not(:first-child) {
+		border-top: 1px solid #eee;
+	}
+
 	.action {
 		// visibility: hidden;
 		// opacity: 0;
@@ -26,6 +40,18 @@
 
 .new-task {
 	overflow: hidden;
+	padding-top: 5%;
+	border-top: 2px solid #eee;
 }
 
-.state { vertical-align: baseline }
+.state { 
+	&:checked  { background-color: red }
+	vertical-align: baseline;
+}
+
+.remove { 
+  color: #333;
+  display: none;
+
+  &:hover { color: firebrick }
+}

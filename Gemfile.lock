@@ -68,6 +68,8 @@ GEM
     eventmachine (1.2.1)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-rails (4.7.0.0)
+      railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     foundation-rails (6.2.4.0)
       railties (>= 3.1.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   coffee-rails (~> 4.2)
+  font-awesome-rails
   foundation-rails
   friendly_id (~> 5.1.0)
   guard-livereload (~> 2.5)
