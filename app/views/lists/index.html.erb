@@ -1,11 +1,36 @@
-<h1>Lists</h1>
+<h1 class="center-text">Todoist</h1>
 
-<ul>
+<%= form_for @list, url: { action: :create}, html: { class: 'medium-6 medium-offset-3 columns'} do |f| %>
+	<%= f.text_field :name, placeholder: 'New list' %>
+	<%= f.submit 'Create!', class: 'button' %>
+<% end %>
+
+<ul class="row">
 	<% @lists.each do |list| %>
-		<li>
-			<%= list.name %>
-			<%= list.slug %>
-			<%= link_to 'Ir', list_path(list) %>
-		</li>
+		<!-- <li class="card">
+			<p class="title"><%= list.name %></p>
+			<div class="content">
+				<%= list.slug %>
+			</div>
+			<%= link_to 'Ir', list_path(list), class: 'action' %>
+		</li> -->
+		  <div class="medium-6 columns end">
+		    <div class="card">
+		      <div class="content">
+		        <span class="title"><%= list.name %></span>
+		        <br>
+		        <br>
+		        <% list.tasks.each do |task| %>
+		        	<input type="checkbox" name="" disabled checked="<%= task.state %>">
+		        	<span><%= task.description %></span>
+		        	<br>
+		        <% end %> 
+		      </div>
+		      <div class="action text-right">
+		        <%= link_to 'Ir', list_path(list) %>
+		      </div>
+		     </div>
+		    </div>
+
 	<% end %>
 </ul>

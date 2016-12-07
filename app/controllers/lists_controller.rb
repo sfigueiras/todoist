@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   def index
+      @list = List.new
   	@lists = List.all
   end
 
@@ -8,6 +9,12 @@ class ListsController < ApplicationController
   	
   	@new_task = Task.new
   	@list = List.friendly.find(params[:id])
+  end
+
+  def create
+    list = List.create(list_params)
+
+    redirect_to list_path(list)
   end
 
   def update

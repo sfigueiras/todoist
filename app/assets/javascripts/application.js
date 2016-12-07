@@ -18,7 +18,7 @@
 
 $(function(){ $(document).foundation(); });
 
-$(document).ready(function() {
+var ready = function() {
 	$('.task').on('mouseover', function() {
 		var $remove = $(this).find('.remove');
 		$remove.css({display: 'inline-block'});
@@ -43,8 +43,6 @@ $(document).ready(function() {
 		}
 	});
 
-	// $('.state').prop('checked', true)
-
 	function cross(element) {
 		element.addClass('crossed');
 	}
@@ -52,4 +50,7 @@ $(document).ready(function() {
 	function uncross(element) {
 		element.removeClass('crossed');
 	}
-});
+}
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);

@@ -1,19 +1,26 @@
+<%= link_to lists_path, class: 'back' do %><%= fa_icon 'arrow-left 2x' %><% end %>
 <section class="list medium-6 medium-offset-3 large-4 large-offset-4 columns">
 	<header>
-		<%= form_for(@list, url: { action: :update}, html: {class: 'medium-10 columns'}) do |f| %>
+		<%= form_for(@list, url: { action: :update}, html: {class: 'medium-9 columns'}) do |f| %>
 			<%= f.hidden_field :slug %>
 			<%= f.text_field :name, class: "title updatable" %>
 		<% end %>
-		<p class="created-at"><%= format_date(@list.created_at) %></p>
-	</header><!-- /header -->
+		<p class="created-at medium-3 columns"><%= format_date(@list.created_at) %></p>
+	</header>
 	
-	<ul class="no-bullet">
-		<% @list.tasks.each do |task| %>
-			<li class="task">
-				<%= render "tasks/show", list: @list, task: task %>
-			</li>
-		<% end %>
-	</ul>
+	<% if @list.tasks.size > 0 %>
+		<ul class="no-bullet">
+			<% @list.tasks.each do |task| %>
+				<li class="task">
+					<%= render "tasks/show", list: @list, task: task %>
+				</li>
+			<% end %>
+		</ul>
+	<% else %>
+		<div class="center-text">
+			<span style="font-size: 1.5rem">No tasks add one below </span><%= fa_icon 'thumbs-down 4x', style: 'vertical-align: middle' %>
+		</div>
+	<% end %>
 
 	<div class="new-task">
 		<%= form_for([@list, @new_task]) do |f| %>
@@ -28,7 +35,7 @@
 	</footer>
 </section>
 
-<div class="reveal" id="exampleModal1" data-reveal>
+<!-- <div class="reveal" id="exampleModal1" data-reveal>
   <h1>Awesome. I Have It.</h1>
   <p class="lead">Your couch. It is mine.</p>
   <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
@@ -37,4 +44,4 @@
   </button>
 </div>
 
-<button class="fab" data-open="exampleModal1">+</button>
+<button class="fab" data-open="exampleModal1">+</button> -->

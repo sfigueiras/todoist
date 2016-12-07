@@ -24,6 +24,12 @@ body { background-color: #eee }
 .pull-right { float: right }
 .no-margin { margin: 0 }
 .center-text { text-align: center }
+.back {
+  color: #333;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
 
 .fab{
   background-color:#F44336;
