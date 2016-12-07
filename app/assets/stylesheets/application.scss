@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require 'masonry/basic'
+ *= require 'masonry/centered'
+ *= require 'masonry/fluid'
+ *= require 'masonry/gutters'
+ *= require 'masonry/infinitescroll'
+ *= require 'masonry/right-to-left'
+ *= require 'masonry/transitions'
 
  */
 
@@ -55,3 +62,5 @@ body { background-color: #eee }
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.box { background-color: transparent !important}
