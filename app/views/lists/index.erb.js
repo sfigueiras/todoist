@@ -1,0 +1,1 @@
+$("#masonry-container").html("<%= j(render @lists) %>")

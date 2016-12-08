@@ -26,6 +26,15 @@ class ListsController < ApplicationController
   	end
   end
 
+  def destroy
+    List.friendly.find(params[:id]).destroy
+    
+    respond_to do |format|
+      format.js { render :index }
+      format.html { redirect_to lists_path }
+    end
+  end
+
   def list_params
   	params.require(:list).permit(:id, :name, :slug)
   end

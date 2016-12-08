@@ -1,0 +1,13 @@
+<% if list.tasks.size > 0 %>
+	<ul class="tasks no-bullet">
+		<% list.tasks.each do |task| %>
+			<li class="task">
+				<%= render "tasks/show", list: list, task: task %>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<div class="center-text placeholder">
+		<span style="font-size: 1.5rem">No tasks add one below </span><%= fa_icon 'thumbs-down 2x', style: 'vertical-align: middle' %>
+	</div>
+<% end %>

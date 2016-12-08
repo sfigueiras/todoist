@@ -25,17 +25,54 @@
 
 @import "font-awesome";
 
-body { background-color: #eee }
+html, body { 
+  background-color: #eee;
+  min-height: 100%;
+}
 
 .inline { display: inline}
+
 .pull-right { float: right }
+
 .no-margin { margin: 0 }
+
 .center-text { text-align: center }
+
+.cornered {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.no-style { 
+  color: inherit;
+  &:hover { color: #4a4a4a }
+}
+
+.placeholder { margin: 10% }
+
+.shadow-on-focus {
+  transition: box-shadow 0.3s ease-in-out;
+  &:focus {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
 .back {
   color: #333;
   position: absolute;
   top: 30px;
   left: 30px;
+}
+
+#masonry-container {
+  margin: 0 auto;
+}
+
+.truncate {
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .fab{

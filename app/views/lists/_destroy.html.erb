@@ -1,0 +1,3 @@
+<%= link_to list_path(list), method: :delete, confirm: "Are you sure you want to delete the list #{list.name}?" do %>
+	<%= fa_icon "remove #{size}x", class: 'remove cornered' %>
+<% end %>

@@ -1,0 +1,9 @@
+  <% if list.tasks.size > 0 %>
+    <% list.tasks.each do |task| %>
+    	<input type="checkbox" name="" disabled <%= 'checked' if task.state %>>
+    	<span class="<%= 'crossed' if task.state %>"><%= task.description %></span>
+    	<br>
+    <% end %> 
+<% else %>
+	<p class="center-text">No tasks added yet</p>
+<% end %>

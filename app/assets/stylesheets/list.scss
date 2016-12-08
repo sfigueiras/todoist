@@ -11,9 +11,10 @@
 	box-shadow: 0px 5px 39px -9px rgba(0,0,0,0.75);
 
 	header {
-		margin-bottom: 5%;
+		position: relative;
+		padding-bottom: 2.5%;
 		border-bottom: 2px solid #eee;
-		overflow:hidden;
+		overflow: hidden;
 		
 		.title, .created-at { display: inline}
 		
@@ -29,6 +30,9 @@
 
 	}
 }
+
+.standalone-input, .standalone-input:focus { 
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) }
 
 .updated-at {
 	vertical-align: baseline;

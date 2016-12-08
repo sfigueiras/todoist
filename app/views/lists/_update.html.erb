@@ -1,0 +1,4 @@
+<%= form_for(list, url: { action: :update}, html: {class: 'medium-9 columns'}) do |f| %>
+	<%= f.hidden_field :slug %>
+	<%= f.text_field :name, class: "title updatable truncate", title: "#{ list.name }" %>
+<% end %>

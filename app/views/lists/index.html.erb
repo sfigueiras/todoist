@@ -1,42 +1,24 @@
 <h1 class="center-text">Todoist</h1>
 
-<%= form_for @list, url: { action: :create}, html: { class: 'medium-6 medium-offset-3 columns'} do |f| %>
-	<%= f.text_field :name, placeholder: 'New list' %>
-	<!-- <%= f.submit 'Create!', class: 'button' %> -->
-<% end %>
+<%= render 'new', list: @list %>
 
-<div class="medium-10 medium-offset-1 columns">
-	<ul id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-		<% @lists.each do |list| %>
-			<!-- <li class="card">
-				<p class="title"><%= list.name %></p>
-				<div class="content">
-					<%= list.slug %>
-				</div>
-				<%= link_to 'Ir', list_path(list), class: 'action' %>
-			</li> -->
-			  <div class="box col3 end">
-			    <div class="card">
-			      <div class="content">
-			        <span class="title"><%= list.name %></span>
-			        <br>
-			        <br>
-			        <% if list.tasks.size > 0 %>
-				        <% list.tasks.each do |task| %>
-				        	<input type="checkbox" name="" disabled checked="<%= task.state %>">
-				        	<span><%= task.description %></span>
-				        	<br>
-				        <% end %> 
-				   <% else %>
-				   	<p class="center-text">No tasks added yet</p>
-				   <% end %>
-			      </div>
-			      <div class="action text-right">
-			        <%= link_to 'Ir', list_path(list) %>
-			      </div>
-			     </div>
-			    </div>
+<div class="medium-12 columns">
+  <ul id="masonry-container" data-masonry-options='{ "isFitWidth": true }' class="transitions-enabled infinite-scroll clearfix">
+    <% @lists.each do |list| %>
+    <div class="box col3 end">
+    <%= link_to list_path(list), class: 'no-style ref' do %>
+      <div class="card">
+        <div class="content">
+          <%= render 'destroy', list: list, size: 1 %>
+          <span class="title"><%= list.name %></span>
+          <br>
+          <br>
 
-		<% end %>
-	</ul>
+          <%= render 'tasks/index_preview', list: list %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </ul>
 </div>

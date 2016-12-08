@@ -1,34 +1,18 @@
 <%= link_to lists_path, class: 'back' do %><%= fa_icon 'arrow-left 2x' %><% end %>
+<% title "#{@list.name} List" %>
+
 <section class="list medium-6 medium-offset-3 large-4 large-offset-4 columns">
 	<header>
-		<%= form_for(@list, url: { action: :update}, html: {class: 'medium-9 columns'}) do |f| %>
-			<%= f.hidden_field :slug %>
-			<%= f.text_field :name, class: "title updatable" %>
-		<% end %>
-		<p class="created-at medium-3 columns"><%= format_date(@list.created_at) %></p>
+		<%= render 'update', list: @list %>
+
+		<!-- <p class="created-at medium-3 columns"><%= format_date(@list.created_at) %></p> -->
+		
+		<%= render 'destroy', list: @list, size: 2 %>
 	</header>
 	
-	<% if @list.tasks.size > 0 %>
-		<ul class="no-bullet">
-			<% @list.tasks.each do |task| %>
-				<li class="task">
-					<%= render "tasks/show", list: @list, task: task %>
-				</li>
-			<% end %>
-		</ul>
-	<% else %>
-		<div class="center-text">
-			<span style="font-size: 1.5rem">No tasks add one below </span><%= fa_icon 'thumbs-down 4x', style: 'vertical-align: middle' %>
-		</div>
-	<% end %>
+	<%= render 'tasks/index', list: @list %>
 
-	<div class="new-task">
-		<%= form_for([@list, @new_task]) do |f| %>
-			<%= f.text_field :description, placeholder: 'New task' %>
-			<%= f.select :type, Task.descendants.map(&:name), {}, class: 'medium-8 columns' %>
-			<%= f.submit 'Create!', class: 'button pull-right' %>
-		<% end %>
-	</div>
+	<%= render 'tasks/new', list: @list, task: @new_task %>
 
 	<footer class="updated-at">
 		<small><b>Updated</b> <%= updated_at(@list.updated_at)[:date] %> <b>at</b> <%= updated_at(@list.updated_at)[:time] %></small>
@@ -38,13 +22,3 @@
 <section class="medium-3 large-5 columns">
 	
 </section>
-<!-- <div class="reveal" id="exampleModal1" data-reveal>
-  <h1>Awesome. I Have It.</h1>
-  <p class="lead">Your couch. It is mine.</p>
-  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-<button class="fab" data-open="exampleModal1">+</button> -->

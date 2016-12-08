@@ -1,0 +1,20 @@
+<div class="medium-12 columns">
+  <ul id="masonry-container" data-masonry-options='{ "isFitWidth": true }' class="transitions-enabled infinite-scroll clearfix">
+    <% lists.each do |list| %>
+        <div class="box col3 end">
+        <%= link_to list_path(list), class: 'no-style' do %>
+          <div class="card">
+            <div class="content">
+              <%= render 'destroy', list: list, size: 1 %>
+              <span class="title"><%= list.name %></span>
+              <br>
+              <br>
+              
+              <%= render 'tasks/index_preview', list: list %>
+            </div>
+           </div>
+          </div>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
