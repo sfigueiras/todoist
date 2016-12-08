@@ -12,8 +12,21 @@
   </head>
 
   <body>
+    <a href="#" id="myBtn"></a>
+    <div id="myModal" class="todo-modal">
 
+      <!-- Modal content -->
+      <div class="todo-modal-content">
+        <div id="last-lists"></div>
+      </div>
+
+    </div>
     <%= yield %>
 
+    <% if minumum_lists_added? %>
+      <div data-alert class="alert-box success">
+        <%= link_to 'Last 5 lists', last_lists_path, remote: true %>
+      </div>
+      <% end %>
   </body>
 </html>

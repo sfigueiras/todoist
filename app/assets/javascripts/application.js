@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require foundation
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
@@ -52,14 +52,18 @@ var ready = function() {
 		isFitWidth: true	
 	});
 
-	$('.copy').on('click', function() {
+	$('.copy').on('click', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		
 		if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-		  debugger;
 	        var textarea = document.createElement("textarea");
-	        textarea.textContent = text;
+	        textarea.textContent = $(this).prop('href');
 	        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+	        
 	        document.body.appendChild(textarea);
 	        textarea.select();
+	        
 	        try {
 	            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
 	        } catch (ex) {
@@ -69,7 +73,25 @@ var ready = function() {
 	            document.body.removeChild(textarea);
 	        }
 	      }
-	})
+	});
+
+	var modalOpened = false;
+	
+	// When the user clicks on the button, open the modal 
+	$('#myBtn').on('click', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	    $('.todo-modal').css({display: "block"});
+	    modalOpened = true;
+	});
+
+	// When the user clicks anywhere outside of the modal, close it
+	$(window).on('click', function(event) {
+	    if (modalOpened && event.target != $('.todo-modal')) {
+	        $('.todo-modal').css({display: "none"});
+	        modalOpened = false;
+	    }
+	});
 
 	function cross(element) {
 		element.addClass('crossed');

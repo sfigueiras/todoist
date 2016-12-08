@@ -9,6 +9,7 @@
     <%= link_to list_path(list), class: 'no-style ref' do %>
       <div class="card">
         <div class="content">
+        <a href="<%= list_url(list) %>" title="Copy to clipboard" class="copy cornered" style="right: 30px; vertical-align: -webkit-baseline-middle;"><%= fa_icon 'link' %></a>
           <%= render 'destroy', list: list, size: 1 %>
           <span class="title"><%= list.name %></span>
           <br>

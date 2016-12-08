@@ -14,6 +14,10 @@ class ListsController < ApplicationController
   def create
     list = List.create(list_params)
 
+    # byebug
+    session[:top] = (session[:top] || []) << list.id
+    p session[:top]
+
     redirect_to list_path(list)
   end
 
@@ -32,6 +36,15 @@ class ListsController < ApplicationController
     respond_to do |format|
       format.js { render :index }
       format.html { redirect_to lists_path }
+    end
+  end
+
+  def last
+    @lists = List.find(session[:top]).reverse.take(5)
+
+    respond_to do |format|
+      format.html { render :last }
+      format.js { render :last}
     end
   end
 

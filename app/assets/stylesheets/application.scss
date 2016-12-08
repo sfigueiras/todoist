@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
  *= require 'masonry/basic'
  *= require 'masonry/centered'
  *= require 'masonry/fluid'
@@ -20,10 +19,13 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require foundation
+ *= require foundation_and_overrides
 
  */
 
 @import "font-awesome";
+@import "modal";
 
 html, body { 
   background-color: #eee;
@@ -42,6 +44,25 @@ html, body {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.alert-box {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #43AC6A;
+  padding: 1.5%;
+  position: fixed;
+  bottom: 0;
+  opacity: 0.7;
+  transition: opacity 0.25s linear;
+
+  &:hover { opacity: 1 }
+  
+  a {
+    color: white;
+    text-decoration: underline;
+  }
 }
 
 .no-style { 
@@ -73,31 +94,6 @@ html, body {
   overflow:hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.fab{
-  background-color:#F44336;
-  width:60px;
-  height:60px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  border-radius:100%;
-  background:#F44336;
-  border:none;
-  outline:none;
-  color:#FFF;
-  font-size:36px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  transition:.3s;  
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-.fab:focus {
-  transform:scale(1.1);
-  transform:rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }
 
 .box { background-color: transparent !important}

@@ -1,0 +1,11 @@
+<h4 class="title">Last 5 added lists by you</h4>
+<br>
+
+<ul>
+	<% lists.each do |list| %>
+		<li>
+			<p><%= list[:name] %> <a href="<%= list_path(list[:slug]) %>" title=""><%= list_url(list[:slug]) %></a></p>
+		</li>
+	<% end %>
+</ul>
+	

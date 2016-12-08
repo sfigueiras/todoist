@@ -1,4 +1,8 @@
 module ApplicationHelper
+	def minumum_lists_added?
+		session[:top] && session[:top].size > 4
+	end
+
 	def title(page_title)
 	    content_for(:title) { page_title }
 	  end
