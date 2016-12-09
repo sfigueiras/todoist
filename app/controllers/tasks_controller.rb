@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
 	def create
-		List.friendly.find(params[:list_id]).tasks << Task.create(task_params)
+		task = Task.create(task_params)
+		task.progress = 0 if (task_params[:type].eql? "LongTask")
+		
+		List.friendly.find(params[:list_id]).tasks << task
 		
 		redirect_to list_path(params[:list_id])
 	end
