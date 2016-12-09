@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .list {
-	margin-top: 5%;
+	margin-top: 2.5%;
 	margin-bottom: 5%;
 	background-color: white;
 	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -12,15 +12,15 @@
 
 	header {
 		position: relative;
-		padding-bottom: 2.5%;
 		border-bottom: 2px solid #eee;
 		overflow: hidden;
 		
 		.title, .created-at { display: inline}
 		
 		.title {
-			margin-top: 10%;
-			font-size: 2em;
+			margin-top: 5%;
+			font-size: 1.5em;
+			padding-bottom: 5px;
 		}
 
 		.created-at {
