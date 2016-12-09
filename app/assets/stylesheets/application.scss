@@ -46,8 +46,24 @@ html, body {
   right: 15px;
 }
 
+textarea {resize: none}
+
+.input-group-label {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .alert-box {
-  width: 100%;
+  width: 160px;
+  min-height: 120px;
+  border-top-left-radius: 100%;
+  a {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+  }
   text-align: center;
   font-weight: bold;
   background-color: #43AC6A;
@@ -55,6 +71,7 @@ html, body {
   position: fixed;
   bottom: 0;
   opacity: 0.7;
+  right: 0px;
   transition: opacity 0.25s linear;
 
   &:hover { opacity: 1 }
@@ -69,6 +86,8 @@ html, body {
   color: inherit;
   &:hover { color: #4a4a4a }
 }
+
+.no-background { background-color: transparent }
 
 .placeholder { margin: 10% }
 

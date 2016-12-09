@@ -1,4 +1,21 @@
 <div class="input-group">
-	<div class="input-group-field no-margin updatable"><%= form.date_field :start_date %></div>		
-	<div class="input-group-field no-margin updatable"><%= form.date_field :end_date %></div>		
+	<div class="medium-12 large-6 columns">
+		<div class="input-group-label">
+			<%= form.label :start_date %>
+		</div>
+
+		<div class="input-group-field no-margin updatable">
+			<%= form.date_field :start_date, class: 'no-background no-margin' %>
+		</div>
+	</div>
+
+	<div class="medium-12 large-6 columns">
+		<div class="input-group-label">
+			<%= form.label :end_date %>
+		</div>
+
+		<div class="input-group-field no-margin updatable">
+			<%= form.date_field :end_date, class: 'no-background no-margin' %>
+		</div>		
+	</div>
 </div>

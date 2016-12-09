@@ -5,10 +5,10 @@
 				<div class="input-group-field">
 					<%= f.check_box :state, class: 'state no-margin updatable' %>
 				</div>
-				<div class="input-group-field medium-7 large-8 columns">
-					<%= f.text_field :description, class: "no-margin updatable description #{'crossed' if task.state}" %>
+				<div class="input-group-field medium-7 large-9 columns">
+					<%= f.text_field :description, class: "no-margin updatable description #{'crossed' if task.state}", title: task.description %>
 				</div>
-				<div class="input-group-field medium-5 large-4 columns">
+				<div class="input-group-field medium-5 large-3 columns">
 					<%= f.select :priority, [ ['High', 1], ['Medium', 2], ['Low', 3] ], {}, class: 'updatable' %>
 				</div>
 				<div class="input-group-field">
