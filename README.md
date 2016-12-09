@@ -1,24 +1,19 @@
-# README
+# Proyecto Integrador - TTPS (Opción) Ruby
+## Santiago Figueiras - 12488/7
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Dependencies:
+  * ruby 2.2.2
+  * rails 5.0.0.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Setup
+  ```bash
+$ git clone git@github.com:santi-git/todoist.git
+$ bundle install
+$ rake db:migrate
+$ rake db:seed
+$ rails s
+  ```
+### Tests
+```bash
+$ rake test
+```
