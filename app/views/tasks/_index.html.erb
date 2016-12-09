@@ -1,6 +1,6 @@
 <% if list.tasks.size > 0 %>
 	<ul class="tasks no-bullet">
-		<% list.tasks.each do |task| %>
+		<% list.ordered_tasks.each do |task| %>
 			<li class="task">
 				<%= render "tasks/show", list: list, task: task %>
 			</li>

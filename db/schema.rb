@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202023502) do
+ActiveRecord::Schema.define(version: 20161209031430) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161202023502) do
     t.text     "description"
     t.boolean  "state"
     t.integer  "priority"
-    t.float    "progress"
+    t.integer  "progress"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at",  null: false

@@ -7,6 +7,8 @@
 			<div class="input-group-field" class="medium-6 columns">
 				<%= f.text_field :description, placeholder: 'New task', autofocus: true, class: 'no-margin' %>
 			</div>
+
+			<%= f.hidden_field :priority, value: 1 %>
 		</div>
 	<% end %>
 </div>

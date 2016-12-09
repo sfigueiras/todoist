@@ -1,7 +1,7 @@
   <% if list.tasks.size > 0 %>
-    <% list.tasks.each do |task| %>
-    	<input type="checkbox" name="" disabled <%= 'checked' if task.state %>>
-    	<span class="<%= 'crossed' if task.state %>"><%= task.description %></span>
+    <% list.ordered_tasks.each do |task| %>
+    	<input class="state" style="vertical-align: sub" type="checkbox" disabled <%= 'checked' if task.state %>>
+    	<span class="<%= 'crossed' if task.state %> description"><%= task.description %></span>
     	<br>
     <% end %> 
 <% else %>

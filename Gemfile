@@ -31,6 +31,7 @@ gem 'foundation-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem "font-awesome-rails"
 gem 'masonry-rails'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
