@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_self
  *= require 'masonry/basic'
  *= require 'masonry/centered'
  *= require 'masonry/fluid'
@@ -20,106 +20,11 @@
  *= require 'masonry/transitions'
  *= require foundation
  *= require foundation_and_overrides
- *= require_self
-
+ *= require list
+ *= require tasks
+ *= require _helpers
  */
 
 @import "font-awesome";
 @import "modal";
 
-html, body { 
-  background-color: #eee;
-  min-height: 100%;
-}
-
-.inline { display: inline}
-.inline-block { display: inline-block }
-.created-at {
-  margin: 0;
-  display: inline-block;
-  float: right;
-}
-
-.pull-right { float: right }
-
-.no-margin { margin: 0 }
-
-.center-text { text-align: center }
-
-.cornered {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-textarea {resize: none}
-
-.input-group-label {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-}
-
-.alert-box {
-  width: 160px;
-  min-height: 120px;
-  border-top-left-radius: 100%;
-  a {
-    position: absolute;
-    right: 20px;
-    bottom: 30px;
-  }
-  text-align: center;
-  font-weight: bold;
-  background-color: #43AC6A;
-  padding: 1.5%;
-  position: fixed;
-  bottom: 0;
-  opacity: 0.7;
-  right: 0px;
-  transition: opacity 0.25s linear;
-
-  &:hover { opacity: 1 }
-  
-  a {
-    color: white;
-    text-decoration: underline;
-  }
-}
-
-.no-style { 
-  color: inherit;
-  &:hover { color: #4a4a4a }
-}
-
-.no-background { background-color: transparent }
-
-.placeholder { margin: 10% }
-
-.shadow-on-focus {
-  transition: box-shadow 0.3s ease-in-out;
-  &:focus {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  }
-}
-
-.back {
-  z-index: 10;
-  color: #333;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
-#masonry-container {
-  margin: 0 auto;
-}
-
-.truncate {
-  overflow:hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.box { background-color: transparent !important}

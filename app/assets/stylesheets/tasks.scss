@@ -44,11 +44,9 @@
 
 .remove { 
   color: #333;
-  display: none;
-
-  i { vertical-align: baseline }
 
   &:hover { color: firebrick }
+  i { vertical-align: baseline }
 }
 
 html,body { // for demo only

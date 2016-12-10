@@ -12,7 +12,7 @@
 					<%= f.select :priority, [ ['High', 1], ['Medium', 2], ['Low', 3] ], {}, class: 'updatable' %>
 				</div>
 				<div class="input-group-field">
-					<%= link_to list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove' do %>
+					<%= link_to list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove hidden' do %>
 						<%= fa_icon "remove" %>
 					<% end %>
 				</div>
