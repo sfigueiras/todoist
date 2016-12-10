@@ -15,19 +15,11 @@
 		border-bottom: 2px solid #eee;
 		overflow: hidden;
 		
-		.title, .created-at { display: inline}
-		
 		.title {
 			margin-top: 5%;
 			font-size: 1.5em;
 			padding-bottom: 5px;
 		}
-
-		.created-at {
-			float: right;
-			margin-top: 5%;
-		}
-
 	}
 }
 
@@ -36,5 +28,5 @@
 
 .updated-at {
 	vertical-align: baseline;
-	margin: 2.5% 0 2.5% 0;
+	margin: 1% 0 1% 0;
 }

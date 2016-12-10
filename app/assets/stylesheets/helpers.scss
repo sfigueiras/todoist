@@ -5,6 +5,7 @@ html, body {
 
 .inline { display: inline}
 .inline-block { display: inline-block }
+
 .created-at {
   margin: 0;
   display: inline-block;
@@ -24,13 +25,6 @@ html, body {
 }
 
 textarea {resize: none}
-
-.input-group-label {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-}
 
 .alert-box {
   width: 160px;
