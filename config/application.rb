@@ -12,5 +12,7 @@ module TodoIst
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Buenos Aires"
+    config.assets.compile = true
+    config.assets.precompile = [ '*.scss' ]
   end
 end
