@@ -11,7 +11,7 @@ module ApplicationHelper
 		date.strftime("%D")
 	end
 
-	def updated_at(date)
-		{date: date.strftime("%m/%d/%Y"), time:  date.strftime("%I:%M%p")}
+	def date_and_time(date)
+		{date: date.strftime("%d/%m/%Y"), time:  date.strftime("%I:%M%p")}
 	end
 end

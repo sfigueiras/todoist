@@ -16,7 +16,10 @@
 	<%= render 'tasks/new', list: @list, task: @new_task %>
 
 	<footer class="updated-at">
-		<small><b>Updated</b> <%= updated_at(@list.updated_at)[:date] %> <b>at</b> <%= updated_at(@list.updated_at)[:time] %></small>
+		<small><b>Updated</b> <%= date_and_time(@list.last_update)[:date] %> <b>at</b> <%= date_and_time(@list.last_update)[:time] %></small>
+		<div class="text-right created-at">
+			<small><b>Created</b> <%= date_and_time(@list.created_at)[:date] %></small>
+		</div>
 	</footer>
 </section>
 

@@ -5,7 +5,7 @@
 				<%= f.select :type, Task.descendant_types, { selected: Task.default_option }, {class: 'no-margin' } %>
 			</div>
 			<div class="input-group-field" class="medium-6 columns">
-				<%= f.text_field :description, placeholder: 'New task', autofocus: true, class: 'no-margin' %>
+				<%= f.text_field :description, placeholder: 'New task', class: 'no-margin' %>
 			</div>
 
 			<%= f.hidden_field :priority, value: 1 %>

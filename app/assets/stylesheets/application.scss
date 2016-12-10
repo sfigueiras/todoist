@@ -33,6 +33,12 @@ html, body {
 }
 
 .inline { display: inline}
+.inline-block { display: inline-block }
+.created-at {
+  margin: 0;
+  display: inline-block;
+  float: right;
+}
 
 .pull-right { float: right }
 
