@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   def destroy
     l = List.friendly.find(params[:id])
     
-    session[:top].reject! {|list_id| list_id.eql? l.id }
+    session[:top].reject! {|list_id| list_id.eql? l.id } if session[:top]
     
     l.destroy
     
