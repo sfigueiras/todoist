@@ -4,8 +4,6 @@
 <section class="list small-10 small-offset-1 small- medium-6 medium-offset-3 large-6 large-offset-3 columns">
 	<header>
 		<%= render 'update', list: @list %>
-
-		<!-- <p class="created-at medium-3 columns"><%= format_date(@list.created_at) %></p> -->
 		
 		<a href="<%= list_url(@list) %>" title="Copy to clipboard" class="copy cornered" style="right: 50px; font-size: 1.5em; vertical-align: -webkit-baseline-middle;"><%= fa_icon 'link' %></a>
 		<%= render 'destroy', list: @list, size: 2 %>
@@ -16,7 +14,7 @@
 	<%= render 'tasks/new', list: @list, task: @new_task %>
 
 	<footer class="updated-at">
-		<small><b>Updated</b> <%= date_and_time(@list.last_update)[:date] %> <b>at</b> <%= date_and_time(@list.last_update)[:time] %></small>
+		<small><b>Updated</b> <%= date_and_time(@list.updated_at)[:date] %> <b>at</b> <%= date_and_time(@list.updated_at)[:time] %></small>
 		<div class="created-at">
 			<small><b>Created</b> <%= date_and_time(@list.created_at)[:date] %></small>
 		</div>

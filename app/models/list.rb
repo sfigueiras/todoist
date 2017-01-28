@@ -1,16 +1,20 @@
 class List < ApplicationRecord
-	extend FriendlyId
-	friendly_id :name, use: :slugged
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
-	validates :name, presence: true
+  validates :name, presence: true
 
-	has_many :tasks
+  has_many :tasks
 
-	def ordered_tasks
-    		self.tasks.order(:priority)
-  	end
+  def ordered_tasks
+      valid_tasks.order(:priority)
+  end
 
-  	def last_update
-  		(self.tasks.map(&:updated_at) << self.updated_at).max
-  	end
+  def valid_tasks
+    tasks.where("end_date is null or end_date >= :current_date", { current_date: Date.current })
+  end
+
+  def expired_tasks
+    tasks.where("end_date is not null and end_date < :current_date", { current_date: Date.current})
+  end
 end

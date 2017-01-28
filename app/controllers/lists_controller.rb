@@ -5,18 +5,13 @@ class ListsController < ApplicationController
   end
 
   def show
-  	Rails.application.eager_load!
-  	
   	@new_task = Task.new
   	@list = List.friendly.find(params[:id])
   end
 
   def create
     list = List.create(list_params)
-
-    # byebug
     session[:top] = (session[:top] || []) << list.id
-    p session[:top]
 
     redirect_to list_path(list)
   end

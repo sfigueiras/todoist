@@ -1,3 +1,8 @@
+<% if expired %>
+	<%= link_to list_task_reschedule_path(list, task), method: :put, class: 'absolute-center button' do %>
+		<%= fa_icon 'calendar' %>  Reprogramar
+	<% end %>
+<% end %>
 <div class="input-group">
 	<div class="medium-12 large-6 columns">
 		<div class="input-group-label">
@@ -5,7 +10,7 @@
 		</div>
 
 		<div class="input-group-field no-margin updatable">
-			<%= form.date_field :start_date, class: 'no-background no-margin' %>
+			<%= form.date_field :start_date, class: 'no-background no-margin', disabled: expired %>
 		</div>
 	</div>
 
@@ -15,7 +20,7 @@
 		</div>
 
 		<div class="input-group-field no-margin updatable">
-			<%= form.date_field :end_date, class: 'no-background no-margin' %>
+			<%= form.date_field :end_date, class: 'no-background no-margin', disabled: expired %>
 		</div>		
 	</div>
 </div>

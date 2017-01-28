@@ -7,6 +7,6 @@ class LongTask < Task
 	end
 
 	def default_values
-		self.progress = 0
+		progress = 0
 	end
 end

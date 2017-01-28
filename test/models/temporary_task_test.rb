@@ -12,4 +12,15 @@ class TemporaryTaskTest < ActiveSupport::TestCase
 
     refute task.valid?
   end
+
+  test "task can be reschedule after expiring" do
+  	task = TemporaryTask.new(description: 'A task',
+  		start_date: Date.yesterday, end_date: Date.yesterday)
+
+  	task.reschedule
+  	task.save(validate: false)
+  	
+  	task.description = 'A modified task'
+  	task.save
+	end
 end

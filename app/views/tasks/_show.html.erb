@@ -1,15 +1,15 @@
-<%= form_for([list, task], remote: true, authenticity_token: true, html: {class: 'update-task'}) do |f| %>
-	<div class="row">
-		<div class="task">
+
+	<%= form_for([list, task], remote: true, authenticity_token: true, html: {class: 'update-task'}) do |f| %>
+		<div class="row">
 			<div class="input-group no-margin">
 				<div class="input-group-field">
-					<%= f.check_box :state, class: 'state no-margin updatable' %>
+					<%= f.check_box :state, class: 'state no-margin updatable', disabled: expired %>
 				</div>
 				<div class="input-group-field medium-7 large-9 columns">
-					<%= f.text_field :description, class: "no-margin updatable description #{'crossed' if task.state}", title: task.description %>
+					<%= f.text_field :description, class: "no-margin updatable description #{'crossed' if task.state}", title: task.description, disabled: expired %>
 				</div>
 				<div class="input-group-field medium-5 large-3 columns">
-					<%= f.select :priority, [ ['High', 1], ['Medium', 2], ['Low', 3] ], {}, class: 'updatable' %>
+					<%= f.select :priority, [ ['High', 1], ['Medium', 2], ['Low', 3] ], {}, class: 'updatable', disabled: expired %>
 				</div>
 				<div class="input-group-field">
 					<%= link_to list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove hidden' do %>
@@ -18,7 +18,6 @@
 				</div>
 			</div>
 
-			<%= render "tasks/#{task.type.underscore}", task: task, form: f %>
+			<%= render "tasks/#{task.type.underscore}", list: list, task: task, form: f, expired: expired %>
 		</div>
-	</div>
-<% end %>
+	<% end %>

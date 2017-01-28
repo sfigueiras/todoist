@@ -12,6 +12,18 @@
   </head>
 
   <body>
+    <div class="flash <%= 'error' if flash[:error] %>" >
+      <% if flash[:error] %>
+            <ul class="no-bullet">
+              <% flash[:error].each do |key, messages| %>
+                  <% messages.each  do |message| %>
+                     <span><%= message.capitalize %></span>
+                  <% end %>
+               <% end %>
+            </ul>
+        <% end %>
+    </div>
+      
     <a href="#" id="myBtn"></a>
     <div id="myModal" class="todo-modal">
 

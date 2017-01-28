@@ -1,8 +1,8 @@
 class Task < ApplicationRecord
-  belongs_to :list
+  belongs_to :list, touch: true
 
   def self.descendant_types
-  	self.descendants.map do |d|
+  	%W(SimpleTask LongTask TemporaryTask).map do |d|
   		select_options(d)
   	end
   end
@@ -14,6 +14,6 @@ class Task < ApplicationRecord
   private 
 
   def self.select_options(descendant)
-  	["#{descendant.name.split('Task').first} Task", descendant.name]
+  	["#{descendant.split('Task').first} Task", descendant]
   end
 end
