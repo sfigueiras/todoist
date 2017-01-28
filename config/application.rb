@@ -13,6 +13,7 @@ module TodoIst
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Buenos Aires"
     config.assets.compile = true
+    config.serve_static_assets = false
     config.assets.precompile = [ '*.scss' ]
   end
 end

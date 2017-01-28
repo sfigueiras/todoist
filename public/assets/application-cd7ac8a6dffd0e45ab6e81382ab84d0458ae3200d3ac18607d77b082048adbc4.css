@@ -1,4 +1,163 @@
+/**** Base styles ****/
+
+nav#page-nav {
+  display: block;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+#container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.box {
+  margin: 5px;
+  padding: 5px;
+  background: #D8D5D2;
+  font-size: 11px;
+  line-height: 1.4em;
+  float: left;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.box h2 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.box img {
+  display: block;
+  width: 100%;
+}
+
+.col1 { width: 80px; }
+.col2 { width: 180px; }
+.col3 { width: 280px; }
+.col4 { width: 380px; }
+.col5 { width: 480px; }
+
+.col1 img { max-width: 80px; }
+.col2 img { max-width: 180px; }
+.col3 img { max-width: 280px; }
+.col4 img { max-width: 380px; }
+.col5 img { max-width: 480px; }
+
+/**** Clearfix ****/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+/* Centered example */
+
+.centered { margin: 0 auto; }
+/**** Fluid ****/
+
+
+#container.fluid  {
+  padding: 5px 0;
+}
+
+/* right margin value is 0.1% less than calculated,
+  to allow for rounding errors in Firefox */
+.fluid .box {
+  margin: 5px 0.9% 5px 1%;
+  padding: 5px 1%;
+}
+
+.fluid .box.col1 { width: 16%; }
+.fluid .box.col2 { width: 36%; }
+.fluid .box.col3 { width: 56%; }
+/**** Gutters ****/
+
+
+.has-gutters .box {
+  margin: 5px 0;
+}
+
+.has-gutters .col1 { width: 90px; }
+.has-gutters .col2 { width: 230px; }
+.has-gutters .col3 { width: 370px; }
+.has-gutters .col4 { width: 550px; }
+/* Infinite Scroll loader */
+
+#infscr-loading { 
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  left: 45%;
+  bottom: 40px;
+  width: 200px;
+  padding: 10px;
+  background: #000; 
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+/**** Transitions ****/
+
+
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+      -ms-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
+}
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.2.4
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
 @charset "UTF-8";
+/* line 575, /home/santif/todo.ist/app/assets/stylesheets/_settings.scss */
+.input-group-label {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.2.4
@@ -2693,7 +2852,7 @@ textarea::placeholder {
 input:disabled, input[readonly],
 textarea:disabled,
 textarea[readonly] {
-  background-color: #e6e6e6;
+  background-color: #fefefe;
   cursor: not-allowed;
 }
 
@@ -2891,7 +3050,7 @@ select {
 }
 /* line 47, /home/santif/.rvm/gems/ruby-2.2.2/gems/foundation-rails-6.2.4.0/vendor/assets/scss/forms/_select.scss */
 select:disabled {
-  background-color: #e6e6e6;
+  background-color: #fefefe;
   cursor: not-allowed;
 }
 /* line 53, /home/santif/.rvm/gems/ruby-2.2.2/gems/foundation-rails-6.2.4.0/vendor/assets/scss/forms/_select.scss */
@@ -5438,46 +5597,254 @@ table.hover tbody tr:nth-of-type(even):hover {
 .top-bar-right {
   float: right;
 }
+/* line 575, /home/santif/todo.ist/app/assets/stylesheets/_settings.scss */
+.input-group-label {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+/* line 1, /home/santif/todo.ist/app/assets/stylesheets/flash.scss */
+.flash {
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  top: 10px;
+  width: 350px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+/* line 15, /home/santif/todo.ist/app/assets/stylesheets/flash.scss */
+.flash.error {
+  background-color: firebrick;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  visibility: visible;
+  opacity: 1;
+}
+/* line 1, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+html, body {
+  background-color: #eee;
+  min-height: 100%;
+}
+
+/* line 6, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.inline {
+  display: inline;
+}
+
+/* line 7, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.inline-block {
+  display: inline-block;
+}
+
+/* line 9, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.created-at {
+  margin: 0;
+  display: inline-block;
+  float: right;
+}
+
+/* line 15, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 17, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.no-margin {
+  margin: 0;
+}
+
+/* line 19, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.center-text {
+  text-align: center;
+}
+
+/* line 21, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.cornered {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+/* line 27, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+textarea {
+  resize: none;
+}
+
+/* line 29, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.alert-box {
+  width: 160px;
+  min-height: 120px;
+  border-top-left-radius: 100%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #43AC6A;
+  padding: 1.5%;
+  position: fixed;
+  bottom: 0;
+  opacity: 0.7;
+  right: 0px;
+  transition: opacity 0.25s linear;
+}
+/* line 33, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.alert-box a {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+}
+/* line 48, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.alert-box:hover {
+  opacity: 1;
+}
+/* line 50, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.alert-box a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* line 56, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.no-style {
+  color: inherit;
+}
+/* line 58, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.no-style:hover {
+  color: #4a4a4a;
+}
+
+/* line 61, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.no-background {
+  background-color: transparent;
+}
+
+/* line 63, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.placeholder {
+  margin: 10%;
+}
+
+/* line 65, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.shadow-on-focus {
+  transition: box-shadow 0.3s ease-in-out;
+}
+/* line 67, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.shadow-on-focus:focus {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* line 72, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.back {
+  z-index: 10;
+  color: #333;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+/* line 80, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+#masonry-container {
+  margin: 0 auto;
+}
+
+/* line 84, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.hidden {
+  display: none;
+}
+
+/* line 86, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 92, /home/santif/todo.ist/app/assets/stylesheets/helpers.scss */
+.box {
+  background-color: transparent !important;
+}
 /* line 5, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
 .list {
-  margin-top: 5%;
+  margin-top: 2.5%;
   margin-bottom: 5%;
   background-color: white;
-  -webkit-box-shadow: 0px 5px 39px -9px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 5px 39px -9px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 5px 39px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 /* line 13, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
 .list header {
   position: relative;
-  padding-bottom: 2.5%;
   border-bottom: 2px solid #eee;
   overflow: hidden;
 }
-/* line 19, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
-.list header .title, .list header .created-at {
-  display: inline;
-}
-/* line 21, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
+/* line 18, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
 .list header .title {
-  margin-top: 10%;
-  font-size: 2em;
-}
-/* line 26, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
-.list header .created-at {
-  float: right;
   margin-top: 5%;
+  font-size: 1.5em;
+  padding-bottom: 5px;
 }
 
-/* line 34, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
+/* line 26, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
 .standalone-input, .standalone-input:focus {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-/* line 37, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
+/* line 30, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
 .updated-at {
   vertical-align: baseline;
-  margin: 2.5% 0 2.5% 0;
+  margin: 1% 0 1% 0;
+}
+
+/* line 35, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .95;
+  z-index: 3;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all .1s linear;
+}
+/* line 44, /home/santif/todo.ist/app/assets/stylesheets/list.scss */
+.absolute-center:hover {
+  transform: translate(-50%, -50%) scale(1.1, 1.1);
+}
+/* The Modal (background) */
+/* line 3, /home/santif/todo.ist/app/assets/stylesheets/modal.scss */
+.todo-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+/* line 17, /home/santif/todo.ist/app/assets/stylesheets/modal.scss */
+.todo-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 /* line 5, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .tasks {
@@ -5534,23 +5901,22 @@ table.hover tbody tr:nth-of-type(even):hover {
 /* line 45, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .remove {
   color: #333;
-  display: none;
+}
+/* line 48, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+.remove:hover {
+  color: firebrick;
 }
 /* line 49, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .remove i {
   vertical-align: baseline;
 }
-/* line 51, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
-.remove:hover {
-  color: firebrick;
-}
 
-/* line 54, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 52, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 html, body {
   background: #FAFAFA;
 }
 
-/* line 58, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 56, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card {
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -5559,29 +5925,29 @@ html, body {
   border-radius: 2px;
   cursor: pointer;
 }
-/* line 66, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 64, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .title {
   line-height: 2rem;
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 5%;
 }
-/* line 73, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 71, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .content {
   padding: 1.3rem;
   font-weight: 300;
   border-radius: 0 0 2px 2px;
 }
-/* line 79, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 77, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card p {
   margin: 0;
 }
-/* line 83, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 81, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .action {
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   padding: 1.3rem;
 }
-/* line 88, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 86, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .link {
   color: #ffab40;
   margin-right: 1.3rem;
@@ -5589,11 +5955,11 @@ html, body {
   text-transform: uppercase;
   text-decoration: none;
 }
-/* line 96, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 94, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .image {
   position: relative;
 }
-/* line 98, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 96, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .image .title {
   position: absolute;
   bottom: 0;
@@ -5601,7 +5967,7 @@ html, body {
   padding: 1.3rem;
   color: #fff;
 }
-/* line 105, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
+/* line 103, /home/santif/todo.ist/app/assets/stylesheets/tasks.scss */
 .card .image img {
   border-radius: 2px 2px 0 0;
 }
@@ -5617,6 +5983,7 @@ html, body {
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
 
 
 
@@ -9387,288 +9754,44 @@ html, body {
   clip: auto;
 }
 
-/* line 30, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-html, body {
-  background-color: #eee;
-  min-height: 100%;
-}
-
-/* line 35, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.inline {
-  display: inline;
-}
-
-/* line 37, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.pull-right {
-  float: right;
-}
-
-/* line 39, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.no-margin {
-  margin: 0;
-}
-
-/* line 41, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.center-text {
-  text-align: center;
-}
-
-/* line 43, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.cornered {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-/* line 49, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.alert-box {
+/* The Modal (background) */
+/* line 2, /home/santif/todo.ist/app/assets/stylesheets/modal.scss */
+.todo-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
   width: 100%;
-  text-align: center;
-  font-weight: bold;
-  background-color: #43AC6A;
-  padding: 1.5%;
-  position: fixed;
-  bottom: 0;
-  opacity: 0.7;
-  transition: opacity 0.25s linear;
-}
-/* line 60, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.alert-box:hover {
-  opacity: 1;
-}
-/* line 62, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.alert-box a {
-  color: white;
-  text-decoration: underline;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
-/* line 68, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.no-style {
-  color: inherit;
-}
-/* line 70, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.no-style:hover {
-  color: #4a4a4a;
-}
-
-/* line 73, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.placeholder {
-  margin: 10%;
+/* Modal Content/Box */
+/* line 16, /home/santif/todo.ist/app/assets/stylesheets/modal.scss */
+.todo-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
-/* line 75, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.shadow-on-focus {
-  transition: box-shadow 0.3s ease-in-out;
-}
-/* line 77, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.shadow-on-focus:focus {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-/* line 82, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.back {
-  color: #333;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
-/* line 89, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-#masonry-container {
-  margin: 0 auto;
-}
-
-/* line 93, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* line 99, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.fab {
-  background-color: #F44336;
-  width: 60px;
-  height: 60px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  border-radius: 100%;
-  background: #F44336;
-  border: none;
-  outline: none;
-  color: #FFF;
-  font-size: 36px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: .3s;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* line 117, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.fab:focus {
-  transform: scale(1.1);
-  transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-/* line 124, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
-.box {
-  background-color: transparent !important;
-}
-/**
- * Foundation for Sites by ZURB
- * Version 6.2.4
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
-/**** Base styles ****/
-
-nav#page-nav {
-  display: block;
-}
-
-body {
-  overflow-y: scroll;
-}
-
-#container {
-  background: #FFF;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  clear: both;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-}
-
-.box {
-  margin: 5px;
-  padding: 5px;
-  background: #D8D5D2;
-  font-size: 11px;
-  line-height: 1.4em;
-  float: left;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-}
-
-.box h2 {
-  font-size: 14px;
-  font-weight: 200;
-}
-
-.box img {
-  display: block;
-  width: 100%;
-}
-
-.col1 { width: 80px; }
-.col2 { width: 180px; }
-.col3 { width: 280px; }
-.col4 { width: 380px; }
-.col5 { width: 480px; }
-
-.col1 img { max-width: 80px; }
-.col2 img { max-width: 180px; }
-.col3 img { max-width: 280px; }
-.col4 img { max-width: 380px; }
-.col5 img { max-width: 480px; }
-
-/**** Clearfix ****/
-.clearfix:before, .clearfix:after { content: ""; display: table; }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
-/* Centered example */
-
-.centered { margin: 0 auto; }
-/**** Fluid ****/
-
-
-#container.fluid  {
-  padding: 5px 0;
-}
-
-/* right margin value is 0.1% less than calculated,
-  to allow for rounding errors in Firefox */
-.fluid .box {
-  margin: 5px 0.9% 5px 1%;
-  padding: 5px 1%;
-}
-
-.fluid .box.col1 { width: 16%; }
-.fluid .box.col2 { width: 36%; }
-.fluid .box.col3 { width: 56%; }
-/**** Gutters ****/
-
-
-.has-gutters .box {
-  margin: 5px 0;
-}
-
-.has-gutters .col1 { width: 90px; }
-.has-gutters .col2 { width: 230px; }
-.has-gutters .col3 { width: 370px; }
-.has-gutters .col4 { width: 550px; }
-/* Infinite Scroll loader */
-
-#infscr-loading { 
-  text-align: center;
-  z-index: 100;
-  position: fixed;
-  left: 45%;
-  bottom: 40px;
-  width: 200px;
-  padding: 10px;
-  background: #000; 
-  opacity: 0.8;
-  color: #FFF;
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
-}
-
-.rtl .box {
-  float: right;
-  text-align: right; 
-  direction: rtl;
-}
-/**** Transitions ****/
-
-
-.transitions-enabled.masonry,
-.transitions-enabled.masonry .masonry-brick {
-  -webkit-transition-duration: 0.7s;
-     -moz-transition-duration: 0.7s;
-      -ms-transition-duration: 0.7s;
-       -o-transition-duration: 0.7s;
-          transition-duration: 0.7s;
-}
-
-.transitions-enabled.masonry {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
-}
-
-.transitions-enabled.masonry  .masonry-brick {
-  -webkit-transition-property: left, right, top;
-     -moz-transition-property: left, right, top;
-      -ms-transition-property: left, right, top;
-       -o-transition-property: left, right, top;
-          transition-property: left, right, top;
-}
-
-
-/* disable transitions on container */
-.transitions-enabled.infinite-scroll.masonry {
-  -webkit-transition-property: none;
-     -moz-transition-property: none;
-      -ms-transition-property: none;
-       -o-transition-property: none;
-          transition-property: none;
+/* line 32, /home/santif/todo.ist/app/assets/stylesheets/application.scss */
+.subtitle {
+  padding: 10px 0 0 25px;
+  border-top: 1px solid #eee;
+  font-size: 1.5em;
 }
