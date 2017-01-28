@@ -10,7 +10,7 @@ class TemporaryTask < Task
 	end
 
 	def not_expired
-		if self.end_date > Date.current
+		if self.end_date < Date.current
 			errors.add(:task_expired, "task can't be modified because it has expired")
 		end
 	end
