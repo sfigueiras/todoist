@@ -1,17 +1,19 @@
 class ListsController < ApplicationController
+  include SessionQueue
+  
   def index
-      @list = List.new
+    @list  = List.new
   	@lists = List.all
   end
 
   def show
   	@new_task = Task.new
-  	@list = List.friendly.find(params[:id])
+  	@list     = List.friendly.find(params[:id])
   end
 
   def create
     list = List.create(list_params)
-    session[:top] = (session[:top] || []) << list.id
+    push(list.id)
 
     redirect_to list_path(list)
   end
@@ -26,11 +28,11 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    l = List.friendly.find(params[:id])
+    list = List.friendly.find(params[:id])
     
-    session[:top].reject! {|list_id| list_id.eql? l.id } if session[:top]
+    pop(list.id)
     
-    l.destroy
+    list.destroy
     
     respond_to do |format|
       format.js { render :index }
@@ -39,7 +41,7 @@ class ListsController < ApplicationController
   end
 
   def last
-    @lists = List.find(session[:top]).reverse.take(5)
+    @lists = List.find(all).reverse.take(5)
 
     respond_to do |format|
       format.html { render :last }
