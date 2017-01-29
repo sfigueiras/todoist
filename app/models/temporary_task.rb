@@ -4,7 +4,6 @@ class TemporaryTask < Task
 	before_save :not_expired
 
 	def end_date_greater
-		p "Called end_date_greater"
 		if self.end_date < self.start_date
 			errors.add(:invalid_date, "start date can't be greater than end date")
 			throw(:abort)
@@ -12,7 +11,6 @@ class TemporaryTask < Task
 	end
 
 	def not_expired
-		p "Calling not_expired"
 		if self.end_date < Date.current
 			errors.add(:task_expired, "task can't be modified because it has expired")
 			throw(:abort)
@@ -31,7 +29,6 @@ class TemporaryTask < Task
 	private
 
 	def default_values
-		p "Called default_values"
 		self.start_date ||= Date.current
 		self.end_date ||= Date.tomorrow.tomorrow
 	end

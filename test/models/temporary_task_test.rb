@@ -8,16 +8,19 @@ class TemporaryTaskTest < ActiveSupport::TestCase
   end
 
   test "start date must be greater that end date" do 
-    task = TemporaryTask.new start_date: Date.tomorrow, end_date: Date.current
-
-    refute task.valid?
+    task = TemporaryTask.new start_date: Date.tomorrow, 
+      end_date: Date.current
+    
+    assert_raises Exception do
+      task.save!
+    end
   end
 
   test "task can be reschedule after expiring" do
   	task = TemporaryTask.new(description: 'A task',
   		start_date: Date.yesterday, end_date: Date.yesterday)
 
-  	task.reschedule!
+  	task.reschedule
   	
   	task.description = 'A modified task'
   	assert task.valid?
@@ -25,6 +28,4 @@ class TemporaryTaskTest < ActiveSupport::TestCase
     task.end_date = 10.days.from_now.to_date
     assert task.valid?
 	end
-
-  # test "task is valid update"
 end
