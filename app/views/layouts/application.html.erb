@@ -14,7 +14,7 @@
   <body>
     <div class="flash <%= 'error' if flash[:error] %>" >
       <% if flash[:error] %>
-            <ul class="no-bullet">
+            <ul class="no-bullet no-margin">
               <% flash[:error].each do |key, messages| %>
                   <% messages.each  do |message| %>
                      <span><%= message.capitalize %></span>

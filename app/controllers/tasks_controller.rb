@@ -24,7 +24,6 @@ class TasksController < ApplicationController
 	def reschedule
 		task = Task.find(params[:task_id])
 		task.reschedule
-		task.save(validate: false)
 
 		respond_to do |format| 
 			format.html do

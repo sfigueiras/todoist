@@ -32,6 +32,7 @@ var ready = function() {
 
 	$('.updatable').bind('change', function() {
 		$form = $(this).closest('form')[0];
+		debugger;
 		$form.submit();
 	});
 
@@ -57,22 +58,22 @@ var ready = function() {
 		event.stopPropagation();
 		
 		if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-	        var textarea = document.createElement("textarea");
-	        textarea.textContent = $(this).prop('href');
-	        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
-	        
-	        document.body.appendChild(textarea);
-	        textarea.select();
-	        
-	        try {
-	            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
-	        } catch (ex) {
-	            console.warn("Copy to clipboard failed.", ex);
-	            return false;
-	        } finally {
-	            document.body.removeChild(textarea);
-	        }
-	      }
+      var textarea = document.createElement("textarea");
+      textarea.textContent = $(this).prop('href');
+      textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+      
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+          return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+      } catch (ex) {
+          console.warn("Copy to clipboard failed.", ex);
+          return false;
+      } finally {
+          document.body.removeChild(textarea);
+      }
+    }
 	});
 
 	var modalOpened = false;

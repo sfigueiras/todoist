@@ -17,10 +17,14 @@ class TemporaryTaskTest < ActiveSupport::TestCase
   	task = TemporaryTask.new(description: 'A task',
   		start_date: Date.yesterday, end_date: Date.yesterday)
 
-  	task.reschedule
-  	task.save(validate: false)
+  	task.reschedule!
   	
   	task.description = 'A modified task'
-  	task.save
+  	assert task.valid?
+
+    task.end_date = 10.days.from_now.to_date
+    assert task.valid?
 	end
+
+  # test "task is valid update"
 end
