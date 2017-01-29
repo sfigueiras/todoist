@@ -7,11 +7,11 @@ class List < ApplicationRecord
   has_many :tasks
 
   def ordered_tasks
-      valid_tasks.order(:priority)
+    valid_tasks
   end
 
   def valid_tasks
-    tasks.where("end_date is null or end_date >= :current_date", { current_date: Date.current })
+    tasks.where("end_date is null or end_date >= :current_date", { current_date: Date.current }).order(:priority)
   end
 
   def expired_tasks

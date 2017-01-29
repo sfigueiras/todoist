@@ -32,7 +32,6 @@ var ready = function() {
 
 	$('.updatable').bind('change', function() {
 		$form = $(this).closest('form')[0];
-		debugger;
 		$form.submit();
 	});
 
